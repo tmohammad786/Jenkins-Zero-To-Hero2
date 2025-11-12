@@ -1,11 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'maven:3.9.6-eclipse-temurin-17'
-      // Use root user + mount Docker + cache Maven
-      args '-u root -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2'
-    }
-  }
+  agent any
 
   environment {
     SONAR_URL = "http://13.235.79.12:9000"
