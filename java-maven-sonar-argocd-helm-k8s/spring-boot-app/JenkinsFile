@@ -1,9 +1,6 @@
 pipeline {
   agent {
-   label 'jenkins'
-   docker {
-    image 'maven:3.9.6-eclipse-temurin-17'
-    args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
+   label 'agent2'
   } 
 
   environment {
