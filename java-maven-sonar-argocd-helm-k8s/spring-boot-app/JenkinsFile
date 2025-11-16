@@ -4,7 +4,7 @@ pipeline {
         image 'tajmohd/maven-docker:17'
         args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
     }
-}
+  }
 
   environment {
     SONAR_URL = "http://13.233.36.185:9000"
@@ -17,6 +17,14 @@ pipeline {
   }
 
   stages {
+
+    /* 👇 MUST BE THE FIRST STAGE */
+    stage('Clean Workspace') {
+      steps {
+        deleteDir()
+        echo "🧹 Workspace cleaned!"
+      }
+    }
 
     stage('Checkout Code') {
       steps {
